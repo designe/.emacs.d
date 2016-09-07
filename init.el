@@ -1,7 +1,7 @@
 ;;
 ;; jbear's emacs configuration
 ;; @ author jbear
-;; email hello.designe@facebook.com
+;; @ email hello.designe@facebook.com
 ;;
 
 ;; PACKAGE-ARCHIVES
@@ -29,4 +29,4 @@
 
 ;; Zone Mode
 (require 'zone)
-(zone-when-idle 1000)
+(zone-when-idle 100)
