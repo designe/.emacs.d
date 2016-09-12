@@ -22,7 +22,6 @@
 (require 'compile)
 (ido-mode t)
 (menu-bar-mode -1)
-(normal-erase-is-backspace-mode 1)
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
 (setq column-number-mode t_
@@ -56,6 +55,7 @@
 (setq-default py-which-bufname "IPython")
 
 ;;JS-MODE
+(load  "js-config.el")
 (add-to-list 'auto-mode-alist '("\\.js\\(on\\)?$" . js2-mode))
 
 ;; Zone Mode
