@@ -1,8 +1,36 @@
 ;;
 ;; jbear's emacs configuration
+;;
+;; -*- mode: emacs-lisp -*-
+;;
 ;; @ author jbear
 ;; @ email hello.designe@facebook.com
 ;;
+
+;; -- Global Settings --
+(add-to-list 'load-path "~/.emacs.d")
+(require 'cl)
+(require 'ido)
+(require 'ffap)
+(require 'uniquify)
+(require 'ansi-color)
+(require 'recentf)
+(require 'linum)
+(require 'smooth-scrolling)
+(require 'whitespace)
+(require 'dired-x)
+(require 'compile)
+(ido-mode t)
+(menu-bar-mode -1)
+(normal-erase-is-backspace-mode 1)
+(put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
+(setq column-number-mode t_
+(setq inhibit-startup-message t)
+(setq save-abbrevs nil)
+(setq show-trailing-whitespace t)
+(setq suggest-key-bindings t)
+(setq vc-follow-symlinks t)
 
 ;; PACKAGE-ARCHIVES
 (require 'package)
@@ -26,6 +54,9 @@
 ;; IPython
 (setq-default py-shell-name "ipython")
 (setq-default py-which-bufname "IPython")
+
+;;JS-MODE
+(add-to-list 'auto-mode-alist '("\\.js\\(on\\)?$" . js2-mode))
 
 ;; Zone Mode
 (require 'zone)
