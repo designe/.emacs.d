@@ -7,7 +7,7 @@
 ;; @ email hello.designe@facebook.com
 ;;
 
-;; -- Global Settings --
+;; -- GLOBAL-SETTINGS --
 (add-to-list 'load-path "~/.emacs.d")
 (require 'cl)
 (require 'ido)
@@ -16,38 +16,59 @@
 (require 'ansi-color)
 (require 'recentf)
 (require 'linum)
-(require 'smooth-scrolling)
 (require 'whitespace)
 (require 'dired-x)
 (require 'compile)
+
 (ido-mode t)
 (menu-bar-mode -1)
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
-(setq column-number-mode t_
+(setq column-number-mode t)
 (setq inhibit-startup-message t)
 (setq save-abbrevs nil)
 (setq show-trailing-whitespace t)
 (setq suggest-key-bindings t)
 (setq vc-follow-symlinks t)
 
-;; PACKAGE-ARCHIVES
+;; -- PACKAGE-ARCHIVES --
 (require 'package)
 (add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 (package-initialize)
 
+(setq jbear-packages '(better-defaults 
+                       smooth-scrolling 
+                       python-mode
+                       jedi 
+                       js2-mode
+                       virtualenv
+                       ))
+
+;; -- JBEAR'S PACKAGE CHECK --
+(unless package-archive-contents
+  (package-refresh-contents))
+
+(dolist (package jbear-packages)
+  (unless (package-installed-p package)
+    (if (y-or-n-p (format "There is no package : '%s'. Install it? " package))
+        (package-install package)
+      package)))
+
+(package-initialize)
+
 ;;BETTER-DEFAULTS
-(add-to-list 'load-path "~/.emacs.d/plugins/better-defaults")
 (require 'better-defaults)
+
+;;SMOOTH-SCROLLING
+(require 'smooth-scrolling)
 
 ;;JEDI SETTING
 (add-hook 'python-mode-hook 'jedi:setup)
 (setq jedi:complete-on-dot t)
 
 ;;PYTHON-MODE
-(add-to-list 'load-path "~/.emacs.d/plugins/python-mode")
 (require 'python-mode)
 
 ;; IPython
