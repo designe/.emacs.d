@@ -43,6 +43,7 @@
                        python-mode
                        jedi 
                        js2-mode
+                       js-comint
                        virtualenv
                        ))
 
