@@ -25,5 +25,7 @@
              (set (make-local-variable 'compile-command)
                   (let ((file buffer-file-name)) (concat jshint-cli file))
              (local-set-key "\C-c\C-u" 'whitespace-clean-and-compile))
-            )
+            ))
 
+
+(add-to-list 'auto-mode-alist '("\\.js\\(on\\)?$" . js2-mode))
