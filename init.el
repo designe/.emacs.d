@@ -123,17 +123,3 @@
 ;; Zone Mode
 (require 'zone)
 (zone-when-idle 100)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (yascroll magit zone-sl zone-rainbow zone-nyan virtualenv smooth-scrolling python-mode js2-mode js-comint jedi better-defaults))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(bold ((t (:weight extra-bold)))))
