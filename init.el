@@ -79,6 +79,7 @@
                        js-comint
                        virtualenv
                        magit
+                       cpputils-cmake
                        ))
 
 ;; -- JBEAR'S PACKAGE CHECK --
@@ -119,6 +120,14 @@
 
 ;;JS-MODE
 (load  "js-config.el")
+
+;; CPP-MODE
+(add-hook 'c-mode-common-hook
+          (lambda()
+            (if (derived-mode-p 'c-mode 'c++-mode)
+                (cppcm-reload-all)
+              )))
+(require 'cpputils-cmake)
 
 ;; Zone Mode
 (require 'zone)
