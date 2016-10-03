@@ -42,12 +42,14 @@
 (setq jbear-packages '(better-defaults
                        smooth-scrolling
                        python-mode
+                       julia-mode
                        jedi
                        js2-mode
                        js-comint
                        virtualenv
                        magit
                        cpputils-cmake
+                       popwin
                        ))
 
 ;; -- JBEAR'S PACKAGE CHECK --
@@ -86,6 +88,9 @@
 ;;PYTHON-MODE
 (require 'python-mode)
 
+;;JULIA-MODE
+(require 'julia-mode)
+
 ;; IPython
 (setq-default py-shell-name "ipython")
 (setq-default py-which-bufname "IPython")
@@ -93,14 +98,23 @@
 ;;JS-MODE
 (load  "js-config.el")
 
-;; CPP-MODE
+;;CPP-MODE
 (add-hook 'c-mode-common-hook
-          (lambda()
+OA          (lambda()
             (if (derived-mode-p 'c-mode 'c++-mode)
                 (cppcm-reload-all)
               )))
 (require 'cpputils-cmake)
 
-;; Zone Mode
+;;Zone Mode
 (require 'zone)
 (zone-when-idle 100)
+
+;;POPWIN
+(require 'popwin)
+(popwin-mode 1)
+
+;;DIREX-SETTING
+(push '(direx:direx-mode :position left :width 30 :dedicated t)
+      popwin:special-display-config)
+(global-set-key (kbd "C-x C-j") 'direx:jump-to-directory-other-window)
