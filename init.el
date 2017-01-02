@@ -9,7 +9,7 @@
 ;;
 
 ;; -- GLOBAL-SETTINGS --
-(add-to-list 'load-path "~/.emacs.d")
+(add-to-list 'load-path "~/.emacs.d/lisp")
 (require 'cl)
 (require 'ido)
 (require 'ffap)
@@ -100,7 +100,7 @@
 
 ;;CPP-MODE
 (add-hook 'c-mode-common-hook
-OA          (lambda()
+          (lambda()
             (if (derived-mode-p 'c-mode 'c++-mode)
                 (cppcm-reload-all)
               )))
