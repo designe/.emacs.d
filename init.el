@@ -83,6 +83,10 @@
 ;;PYTHON-MODE
 (require 'python-mode)
 
+;;MAGIT
+(require 'magit)
+(global-set-key (kbd "C-x g") ' magit-status)
+
 ;; IPython
 (setq-default py-shell-name "ipython")
 (setq-default py-which-bufname "IPython")
@@ -94,4 +98,11 @@
 ;; it should be edited
 
 ;; THEME
-(load-theme 'gruvbox-dark-medium)
+(load-theme 'gruvbox-dark-medium t)
+
+;; MULTIPLE-CURSORS
+(require 'multiple-cursors)
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-< C->") 'mc/mark-all-like-this)

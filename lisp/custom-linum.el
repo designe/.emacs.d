@@ -13,4 +13,4 @@
                    :weight 'bold)
 
 (setq display-line-numbers 'visual)
-(setq global-display-line-numbers-mode t)
+(global-display-line-numbers-mode)
