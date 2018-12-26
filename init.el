@@ -16,7 +16,6 @@
 (require 'uniquify)
 (require 'ansi-color)
 (require 'recentf)
-(require 'linum)
 (require 'whitespace)
 (require 'dired-x)
 (require 'compile)
@@ -31,6 +30,8 @@
 (setq show-trailing-whitespace t)
 (setq suggest-key-bindings t)
 (setq vc-follow-symlinks t)
+
+(set-default-font "Hack" nil t)
 
 ;; -- PACKAGE-ARCHIVES --
 (require 'package)
@@ -47,6 +48,7 @@
                        js-comint
                        virtualenv
                        magit
+                       markdown-mode
                        ))
 
 ;; -- JBEAR'S PACKAGE CHECK --
@@ -83,13 +85,13 @@
 ;;PYTHON-MODE
 (require 'python-mode)
 
-;;MAGIT
-(require 'magit)
-(global-set-key (kbd "C-x g") ' magit-status)
-
 ;; IPython
 (setq-default py-shell-name "ipython")
 (setq-default py-which-bufname "IPython")
+
+;;MAGIT
+(require 'magit)
+(global-set-key (kbd "C-x g") 'magit-status)
 
 ;;JS-MODE
 (load  "js-config.el")
@@ -99,6 +101,15 @@
 
 ;; THEME
 (load-theme 'gruvbox-dark-medium t)
+
+;; MARKDOWN-MODE
+(require 'markdown-mode)
+(use-package markdown-mode
+  :ensure t
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown"))
 
 ;; MULTIPLE-CURSORS
 (require 'multiple-cursors)
