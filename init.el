@@ -49,6 +49,10 @@
                        virtualenv
                        magit
                        markdown-mode
+                       gruvbox-theme
+                       multiple-cursors
+                       use-package
+                       google-translate
                        ))
 
 ;; -- JBEAR'S PACKAGE CHECK --
@@ -105,6 +109,8 @@
 ;; MARKDOWN-MODE
 (require 'markdown-mode)
 (use-package markdown-mode
+
+  
   :ensure t
   :mode (("README\\.md\\'" . gfm-mode)
          ("\\.md\\'" . markdown-mode)
@@ -117,3 +123,17 @@
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-< C->") 'mc/mark-all-like-this)
+
+;; GOOGLE-TRANSLATE
+(require 'google-translate)
+(require 'google-translate-default-ui)
+(require 'google-translate-smooth-ui)
+
+(setq google-translate-default-source-language "en")
+(setq google-translate-default-target-language "ko")
+(setq google-translate-translation-directions-alist '(("en" . "ko")))
+
+(global-set-key (kbd "C-c t") 'google-translate-smooth-translate)
+(global-set-key (kbd "C-c p") 'google-translate-at-point)
+(global-set-key (kbd "C-c r") 'google-translate-at-point-reverse)
+
